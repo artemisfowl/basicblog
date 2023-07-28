@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ webtitle | default("My blog") }}</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- including the CSS for this page -->
+		<link rel="stylesheet" href="index.css">
+
+		<!-- bootstrap additions -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+		<!-- custom CSS -->
+		<link rel="stylesheet" href="{{ url_for("static", filename="css/base.css") }}">
+	</head>
+
+	<body class="body-attributes">
+		<!-- Navigation bar -->
+		<nav class="navbar navbar-inverse navbar-fixed-bottom">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/">DiaryTest</a>
+					<ul class="nav navbar-nav">
+						<li class="active dropdown">
+							<!-- update the pages here -->
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+								Most Recent
+								<span class="caret"></span>
+							</a>
+							{% block pages %}
+							{% endblock %}
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="/new">
+								<span class="glyphicon glyphicon-pencil"></span> Create New Entry
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<!-- page content -->
+		<div class="container">
+			{% block content %}
+			{% endblock %}
+		</div>
+	</body>
+</html>

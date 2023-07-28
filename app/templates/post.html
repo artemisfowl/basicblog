@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block pages %}
+<!-- here a loop is required to check the number of posts done -->
+	<!--
+		<ul class="dropdown-menu">
+			<li><a href="#">Page 1-1</a></li>
+		</ul>
+	-->
+	<ul class="dropdown-menu">
+		{% for post in posts %}
+				<li><a href="/post?name={{ post[post.rindex('/')+1:post.rindex('.')] }}">{{ post[post.rindex('/')+1:post.rindex('.')] }}</a></li>
+		{% endfor %}
+	</ul>
+{% endblock %}
+
+{% block content %}
+	<div>
+		<p class="paragraph-attributes">{{ post_name }}</p>
+	</div>
+	<hr />
+	<!-- write the code for finding the most recent post and showing the contents here -->
+	<div>
+		{% for line in page_content %}
+			<p class="paragraph-attributes">{{ line }}</p>
+		{% endfor %}
+	</div>
+{% endblock %}

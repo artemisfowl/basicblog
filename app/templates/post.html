@@ -16,7 +16,11 @@
 
 {% block content %}
 	<div>
-		<p class="paragraph-attributes">{{ post_name }}</p>
+		<table>
+			<tr>
+				<td><p class="paragraph-attributes">{{ post_name }}</p></td><td><a href="/edit?name={{ post_name }}">Edit</a></td>
+			</tr>
+		</table>
 	</div>
 	<hr />
 	<!-- write the code for finding the most recent post and showing the contents here -->

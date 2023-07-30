@@ -7,7 +7,7 @@ from app import application
 # fixme: add the code for setting up the right page to the user
 
 def main():
-	application.run(host="0.0.0.0", debug=True)
+	application.run(host="0.0.0.0", use_reloader=True)
 	return 0
 
 if __name__ == "__main__":

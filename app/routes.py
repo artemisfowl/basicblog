@@ -52,7 +52,8 @@ def create_post():
 
 @application.route("/newpost", methods=["POST"])
 def new_post():
-	post_filepath = f"{POSTS_DIR}{sep}{datetime.now().year}-{datetime.now().month}-{datetime.now().day}.txt"
+	post_filepath = f"{POSTS_DIR}{sep}{datetime.now().year}-{datetime.now().month}-{datetime.now().day}-" + \
+			f"{datetime.now().hour}-{datetime.now().minute}-{datetime.now().second}.txt"
 	with open(post_filepath, "w") as postfile:
 		postfile.write(request.form['postcontent'])
 

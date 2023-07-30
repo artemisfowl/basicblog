@@ -45,7 +45,7 @@ def convert_to_odict(lfiles: list, post_container: PostContainer):
 	'''
 	dtmp = {file[file.rindex(f"{sep}")+1:file.rindex('.')]: file for file in lfiles if len(file) != 0}
 	post_container.dfiles = OrderedDict(reversed(sorted(
-		dtmp.items(), key=lambda x: datetime.strptime(x[0], "%Y-%m-%d"))))
+		dtmp.items(), key=lambda x: datetime.strptime(x[0], "%Y-%m-%d-%H-%M-%S"))))
 
 def r_mru_post(lfiles: list, post_container: PostContainer) -> Union[None, list]:
 	'''

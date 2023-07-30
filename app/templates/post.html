@@ -15,8 +15,9 @@
 {% endblock %}
 
 {% block content %}
-	<div>
-		<p class="paragraph-attributes">{{ post_name }}</p>
+	<div class="horizontal-container">
+		<div class="left-container left-element"><p class="paragraph-attributes">{{ post_name }}</p></div>
+		<div class="right-container right-element"><a href="/edit?name={{ post_name }}">Edit</a></div>
 	</div>
 	<hr />
 	<!-- write the code for finding the most recent post and showing the contents here -->

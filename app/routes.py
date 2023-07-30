@@ -63,3 +63,28 @@ def new_post():
 
 	return render_template("index.html", posts=list(posts.dfiles.values()), recent_content=rcontent,
 						post_name=list(posts.dfiles.keys())[0] if len(posts.dfiles) > 0 else None)
+
+@application.route("/editpost", methods=["POST"])
+def edit_post():
+	global posts
+	post_filepath = posts.dfiles[request.form.get('postname')]
+	with open(post_filepath, "w") as postfile:
+		postfile.write(request.form['postcontent'])
+
+	rcontent = ""
+	if len(posts.dfiles) > 0:
+		with open(posts.dfiles[request.form.get('postname')]) as rfile:
+			rcontent = rfile.readlines()
+			rcontent = [line.strip() for line in rcontent]
+	return render_template("post.html", page_content=rcontent, posts=list(posts.dfiles.values()),
+						post_name=request.form.get('postname'))
+
+@application.route("/edit")
+def edit():
+	global posts
+	rcontent = ""
+	with open(posts.dfiles[request.args.get('name')], "r") as efile:
+		rcontent = efile.readlines()
+		rcontent = [line for line in rcontent if len(line) > 0]
+	return render_template("edit_post.html", page_content=''.join(rcontent), posts=list(posts.dfiles.values()),
+			post_name=request.args.get('name'))

@@ -7,3 +7,26 @@
 	margin-top: 10px;
 	margin-left: 10px;
 }
+
+.container-horizontal {
+	width:100%;
+	height:100vh;
+}
+
+.left-container, .mid-container, .right-container {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	vertical-align: left;
+}
+
+.left-element {
+	width: 10%;
+}
+.mid-element {
+	width: 10%;
+}
+
+.right-element {
+	width: 10%;
+}

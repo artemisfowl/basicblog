@@ -2,10 +2,6 @@
 
 from app import application
 
-# fixme: import the application from the init python file under app module
-
-# fixme: add the code for setting up the right page to the user
-
 def main():
 	application.run(host="0.0.0.0", use_reloader=True)
 	return 0

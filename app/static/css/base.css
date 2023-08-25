@@ -30,3 +30,12 @@
 .right-element {
 	width: 15%;
 }
+
+.content {
+ position: fixed;
+ top: 20px;
+ bottom: 80px;
+ left: 0;
+ right: 0;
+ overflow:auto;
+}

@@ -82,6 +82,9 @@ def edit_post():
 
 @application.route("/edit")
 def edit():
+	'''
+		@brief endpoint for editing a post
+	'''
 	global posts
 	rcontent = ""
 	with open(posts.dfiles[request.args.get('name')], "r") as efile:

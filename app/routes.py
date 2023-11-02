@@ -1,8 +1,8 @@
-from os import makedirs, sep
+from os import makedirs, sep, path
 from glob import glob
 from datetime import datetime
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_from_directory
 
 from .constants import POSTS_DIR
 from .utility import is_dir_empty, PostContainer, r_mru_post
@@ -13,6 +13,11 @@ posts = PostContainer()
 
 makedirs(POSTS_DIR, exist_ok=True)
 
+
+@application.route("/favicon.ico")
+def get_favicon():
+	return send_from_directory(path.join(application.root_path, f"static{sep}icons"), "favicon.ico",
+							mimetype="image/vnd.microsoft.icon")
 
 @application.route("/")
 def index():
